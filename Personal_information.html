@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Thant- Full-Stack Developer & Creative Designer</title>
+    <meta name="description" content="Professional portfolio showcasing web development, design, and digital marketing services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3b82f6, #14b8a6, #10b981);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxIDAgNiAyLjY5IDYgNnMtMi42OSA2LTYgNi02LTIuNjktNi02IDIuNjktNiA2LTZ6TTI0IDQyYzMuMzEgMCA2IDIuNjkgNiA2cy0yLjY5IDYtNiA2LTYtMi42OS02LTYgMi42OS02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4xIi8+PC9nPjwvc3ZnPg==');
+            opacity: 0.2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #10b981;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bg-light {
+            background-color: #f8fafc;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+            transition: color 0.3s;
+        }
+
+        .card:hover h3 {
+            color: #3b82f6;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Services/Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-card.popular {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3b82f6;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            margin: 1rem 0;
+        }
+
+        .price-period {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: normal;
+        }
+
+        .pricing-description {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .reviewer-role {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3b82f6;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info-item .info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info-item .info p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-social a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid,
+            .pricing-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Min Thant</h1>
+            <p class="subtitle">Full-Stack Developer & Creative Designer</p>
+            <p class="description">
+                Crafting beautiful digital experiences that combine stunning design with powerful functionality. 
+                Specialized in modern web technologies and user-centered design.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">✉️ Get In Touch</a>
+                <a href="#portfolio" class="btn btn-secondary">💻 View Projects</a>
+            </div>
+            <div class="social-links">
+                <a href="#" title="GitHub">🔗</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Twitter">🐦</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <p>A selection of recent projects showcasing expertise across different domains</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="card">
+                    <div class="card-icon">🛍️</div>
+                    <span class="badge">Web Development</span>
+                    <h3>E-Commerce Platform</h3>
+                    <p>Modern shopping experience with seamless checkout</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <span class="badge">Design</span>
+                    <h3>Brand Identity Design</h3>
+                    <p>Complete visual identity for tech startup</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <span class="badge">Mobile</span>
+                    <h3>Mobile App UI/UX</h3>
+                    <p>Intuitive fitness tracking application</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <span class="badge">Marketing</span>
+                    <h3>Marketing Campaign</h3>
+                    <p>Digital strategy that increased engagement by 200%</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <span class="badge">Web Development</span>
+                    <h3>SaaS Dashboard</h3>
+                    <p>Analytics platform for business intelligence</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📸</div>
+                    <span class="badge">Design</span>
+                    <h3>Creative Portfolio</h3>
+                    <p>Showcase website for professional photographer</p>
+                    <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services & Pricing</h2>
+                <p>Flexible packages designed to meet your needs and budget</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Package</h3>
+                    <div class="price">$499<span class="price-period">/project</span></div>
+                    <p class="pricing-description">Perfect for getting started</p>
+                    <ul class="features-list">
+                        <li>Responsive Website Design</li>
+                        <li>Up to 5 Pages</li>
+                        <li>Basic SEO Optimization</li>
+                        <li>Mobile Optimization</li>
+                        <li>1 Month Support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <h3>Professional</h3>
+                    <div class="price">$999<span class="price-period">/project</span></div>
+                    <p class="pricing-description">Most popular for businesses</p>
+                    <ul class="features-list">
+                        <li>Everything in Basic</li>
+                        <li>Up to 10 Pages</li>
+                        <li>Advanced SEO & Analytics</li>
+                        <li>E-Commerce Integration</li>
+                        <li>3 Months Priority Support</li>
+                        <li>Content Management System</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$2,499<span class="price-period">/project</span></div>
+                    <p class="pricing-description">For large-scale projects</p>
+                    <ul class="features-list">
+                        <li>Everything in Professional</li>
+                        <li>Unlimited Pages</li>
+                        <li>Custom Features & Integrations</li>
+                        <li>Dedicated Account Manager</li>
+                        <li>12 Months Premium Support</li>
+                        <li>Performance Optimization</li>
+                        <li>Security Hardening</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Reviews</h2>
+                <p>Don't just take my word for it - here's what clients have to say</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Sarah Johnson</h4>
+                    <p class="reviewer-role">CEO, TechStart Inc.</p>
+                    <p class="review-text">"Exceptional work! The website exceeded our expectations. Professional, responsive, and delivered on time."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Michael Chen</h4>
+                    <p class="reviewer-role">Marketing Director</p>
+                    <p class="review-text">"Outstanding creative vision and technical expertise. Our conversion rates improved by 150% after the redesign."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h4>Emily Rodriguez</h4>
+                    <p class="reviewer-role">Small Business Owner</p>
+                    <p class="review-text">"Highly recommend! Great communication throughout the project and the final result is beautiful and functional."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's discuss how we can work together</p>
+            </div>
+            <div class="contact-grid">
+                <div class="card">
+                    <h3>Contact Information</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">Feel free to reach out through any channel</p>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="info">
+                            <h4>Email</h4>
+                            <p>minthant@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="info">
+                            <h4>Phone</h4>
+                            <p>+95 969 665 259 3</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="info">
+                            <h4>Location</h4>
+                            <p>Mandalay , Myanmar</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Send a Message</h3>
+                    <p style="color: #64748b; margin-bottom: 1.5rem;">I'll get back to you within 24 hours</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>John Smith</h3>
+                    <p>Full-Stack Developer & Creative Designer creating exceptional digital experiences.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#portfolio">About</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Branding</a></li>
+                        <li><a href="#services">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="#">🔗</a>
+                        <a href="#">💼</a>
+                        <a href="#">🐦</a>
+                    </div>
+                    <p>minthant@gmail.com</p>
+                    <p>+95 969 665 259 3</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Min Thant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>  
